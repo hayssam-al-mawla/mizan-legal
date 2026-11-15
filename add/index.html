@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Friend invite · Mizan</title>
+<meta name="description" content="A friend invited you to Mizan (Android) or Hakam (iPhone). Open the invite in the app.">
+<meta name="robots" content="noindex">
+<!-- The invite code is in this page's address: don't pass the address on to the stores. -->
+<meta name="referrer" content="no-referrer">
+<style>
+  :root {
+    --bg: #F2F5FA; --surface: #FFFFFF; --border: #E2E7F0; --text: #0E1628; --text2: #5A6476;
+    --brand: #2F6FED; --brand-text: #1F5FD6; --brand-bg: #E5EDFF; --on-brand: #FFFFFF;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #090C13; --surface: #131925; --border: #222A39; --text: #EEF2FA; --text2: #939DB1;
+      --brand: #4D8DFF; --brand-text: #7AABFF; --brand-bg: #15223F; --on-brand: #06101F;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 17px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Arabic", sans-serif; }
+  main { max-width: 480px; margin: 0 auto; padding: 28px 16px 40px; }
+  .top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; }
+  .logo { width: 36px; height: 36px; border-radius: 10px; background: var(--brand); display: inline-flex; align-items: center; justify-content: center; }
+  .logo svg { width: 22px; height: 22px; }
+  .switch { background: none; border: 0; padding: 10px 4px; color: var(--brand-text); font: inherit; font-size: 15px; font-weight: 600; cursor: pointer; }
+  h1 { font-size: 28px; line-height: 1.2; margin: 0 0 8px; }
+  p { margin: 0 0 12px; }
+  .muted { color: var(--text2); font-size: 15px; }
+  .card { background: var(--surface); border-radius: 16px; padding: 16px; margin: 16px 0; }
+  .label { color: var(--text2); font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+  .code-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .code { font-size: 28px; font-weight: 700; letter-spacing: 2px; font-variant-numeric: tabular-nums; direction: ltr; unicode-bidi: isolate; }
+  .btn { display: flex; align-items: center; justify-content: center; min-height: 52px; padding: 12px 18px; border-radius: 14px; border: 0; font: inherit; font-weight: 700; text-align: center; text-decoration: none; cursor: pointer; width: 100%; }
+  .btn.primary { background: var(--brand); color: var(--on-brand); }
+  .btn.secondary { background: var(--brand-bg); color: var(--brand-text); margin-top: 10px; }
+  .btn.small { width: auto; min-height: 44px; padding: 8px 14px; font-size: 15px; background: var(--brand-bg); color: var(--brand-text); }
+  h2 { font-size: 17px; margin: 0 0 10px; }
+  ol { margin: 0; padding-inline-start: 22px; color: var(--text2); font-size: 15px; }
+  li { margin: 4px 0; }
+  .note { border: 1px solid var(--border); border-radius: 14px; padding: 12px 14px; color: var(--text2); font-size: 15px; }
+  .warn { background: var(--brand-bg); color: var(--text); border-radius: 14px; padding: 14px 16px; }
+  footer { color: var(--text2); font-size: 14px; margin-top: 24px; }
+  a { color: var(--brand-text); }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <div class="top">
+    <div class="brand">
+      <span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M5 9l7-2 7 2"/><path d="M3 13l2-5 2 5a2 2 0 0 1-4 0zM17 13l2-5 2 5a2 2 0 0 1-4 0z"/></svg></span>
+      <span data-t="brand">Mizan · Hakam</span>
+    </div>
+    <button class="switch" id="switch" type="button">العربية</button>
+  </div>
+
+  <h1 data-t="title">You’re invited to be friends</h1>
+  <p class="muted" data-t="lead">Your friend uses this app to track training and food, and wants to add you. Each of you chooses what the other can see, and you can stop at any time.</p>
+
+  <p class="warn" id="bad" data-t="bad" hidden>This invite link is incomplete. Ask your friend to send it again.</p>
+
+  <div class="card" id="invite">
+    <div class="label" data-t="codeLabel">Invite code</div>
+    <div class="code-row">
+      <span class="code" id="code">········</span>
+      <button class="btn small" id="copy" type="button" data-t="copy">Copy code</button>
+    </div>
+  </div>
+
+  <p class="note" id="desktop" data-t="desktop" hidden>Open this link on your phone to accept the invite.</p>
+
+  <div class="card" id="android">
+    <h2 data-t="androidTitle">On Android: Mizan</h2>
+    <a class="btn primary" id="openAndroid" href="#" data-t="openAndroid">Open in Mizan</a>
+    <a class="btn secondary" id="getAndroid" href="https://play.google.com/store/apps/details?id=com.barek.mizan" data-t="getAndroid">Get Mizan on Google Play</a>
+    <ol style="margin-top:14px">
+      <li data-t="a1">New here? Install Mizan, open it and finish the short setup.</li>
+      <li data-t="a2">The invite then shows up on its own. If it doesn’t, open this link again, or go to Friends › Add and enter the code.</li>
+    </ol>
+  </div>
+
+  <div class="card" id="ios">
+    <h2 data-t="iosTitle">On iPhone: Hakam</h2>
+    <a class="btn primary" id="openIOS" href="#" data-t="openIOS">Open in Hakam</a>
+    <a class="btn secondary" id="getIOS" href="#" data-t="getIOS" hidden>Get Hakam on the App Store</a>
+    <ol style="margin-top:14px">
+      <li data-t="i1">New here? Find Hakam in the App Store, install it, open it and finish the short setup.</li>
+      <li data-t="i2">Then open this link again, or go to Friends › Add and enter the code.</li>
+    </ol>
+  </div>
+
+  <p class="note" data-t="names">The app is called Mizan on Android and Hakam on iPhone. It is the same app, and friends work across both.</p>
+
+  <noscript><p class="note">Open Mizan (Android) or Hakam (iPhone), go to Friends › Add, and enter the code from the end of this page’s address (after “c=”).</p></noscript>
+
+  <footer><span data-t="track">This page doesn’t track you.</span> · <a href="../privacy.html" id="privacy" data-t="privacy">Privacy</a> · <a href="../terms.html" id="terms" data-t="terms">Terms</a></footer>
+</main>
+<script>
+(function () {
+  // The two store pages. Set APP_STORE once Hakam has its App Store address
+  // (https://apps.apple.com/app/id…); until then the iPhone card says to search for it.
+  var PLAY = 'https://play.google.com/store/apps/details?id=com.barek.mizan';
+  var APP_STORE = '';
+  var PACKAGE = 'com.barek.mizan';
+  var ALPHABET = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+
+  var T = {
+    ar: {
+      brand: 'ميزان · حَكَم',
+      title: 'صديقك يدعوك',
+      lead: 'صديقك يستخدم هذا التطبيق لمتابعة تمارينه وطعامه ويريد إضافتك. كلٌّ منكما يختار ما يراه الآخر، ويمكنك التوقف متى شئت.',
+      bad: 'رابط الدعوة غير مكتمل. اطلب من صديقك إرساله من جديد.',
+      codeLabel: 'رمز الدعوة',
+      copy: 'انسخ الرمز',
+      copied: 'تم النسخ',
+      desktop: 'افتح هذا الرابط على هاتفك لقبول الدعوة.',
+      androidTitle: 'على أندرويد: ميزان',
+      openAndroid: 'افتح في ميزان',
+      getAndroid: 'حمّل ميزان من Google Play',
+      a1: 'جديد هنا؟ ثبّت ميزان وافتحه وأكمل الإعداد القصير.',
+      a2: 'بعدها تظهر الدعوة تلقائياً. وإن لم تظهر، افتح هذا الرابط من جديد، أو ادخل إلى الأصدقاء › أضف واكتب الرمز.',
+      iosTitle: 'على الآيفون: حَكَم',
+      openIOS: 'افتح في حَكَم',
+      getIOS: 'حمّل حَكَم من App Store',
+      i1: 'جديد هنا؟ ابحث عن «حَكَم» (Hakam) في App Store وثبّته وافتحه وأكمل الإعداد القصير.',
+      i2: 'ثم افتح هذا الرابط من جديد، أو ادخل إلى الأصدقاء › أضف واكتب الرمز.',
+      names: 'اسم التطبيق على أندرويد «ميزان» وعلى الآيفون «حَكَم». هو التطبيق نفسه، والصداقة تعمل بين الاثنين.',
+      track: 'هذه الصفحة لا تتتبّعك.',
+      privacy: 'الخصوصية',
+      terms: 'الشروط'
+    }
+  };
+  var EN = {};
+  var nodes = document.querySelectorAll('[data-t]');
+  for (var i = 0; i < nodes.length; i++) EN[nodes[i].getAttribute('data-t')] = nodes[i].textContent;
+  EN.copied = 'Copied';
+  T.en = EN;
+
+  var lang = /^ar/i.test(navigator.language || '') ? 'ar' : 'en';
+  function apply() {
+    var t = T[lang];
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    for (var i = 0; i < nodes.length; i++) {
+      var key = nodes[i].getAttribute('data-t');
+      if (t[key]) nodes[i].textContent = t[key];
+    }
+    document.getElementById('switch').textContent = lang === 'ar' ? 'English' : 'العربية';
+    document.getElementById('privacy').href = '../privacy.html' + (lang === 'ar' ? '#ar' : '');
+    document.getElementById('terms').href = '../terms.html' + (lang === 'ar' ? '#ar' : '');
+  }
+  document.getElementById('switch').addEventListener('click', function () { lang = lang === 'ar' ? 'en' : 'ar'; apply(); });
+  apply();
+
+  // The code: 8 characters, shown as K7M4-Q2XP. Links may carry it in any case, with or without the dash.
+  function parse(raw) {
+    var s = String(raw || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+    if (s.length !== 8) return null;
+    for (var i = 0; i < 8; i++) if (ALPHABET.indexOf(s.charAt(i)) < 0) return null;
+    return s;
+  }
+  var match = /[?&]c=([^&#]*)/.exec(location.search);
+  var code = parse(match ? decodeURIComponent(match[1].replace(/\+/g, ' ')) : '');
+
+  var ua = navigator.userAgent || '';
+  var isAndroid = /Android/i.test(ua);
+  var isIOS = /iPhone|iPad|iPod/i.test(ua);
+  var show = function (id, on) { document.getElementById(id).hidden = !on; };
+
+  // Each phone sees its own app first; a computer sees both and is told to use the phone.
+  if (isAndroid) show('ios', false);
+  if (isIOS) show('android', false);
+  show('desktop', !isAndroid && !isIOS);
+
+  var play = PLAY;
+  if (code) {
+    // Google Play hands "c=CODE" back to the app after the install, so the invite shows without typing.
+    play = PLAY + '&referrer=' + encodeURIComponent('c=' + code);
+    document.getElementById('code').textContent = code.slice(0, 4) + '-' + code.slice(4);
+    // Opens the app when it is installed; otherwise the browser goes to Google Play.
+    document.getElementById('openAndroid').href = isAndroid
+      ? 'intent://add?c=' + code + '#Intent;scheme=mizan;package=' + PACKAGE + ';S.browser_fallback_url=' + encodeURIComponent(play) + ';end'
+      : 'mizan://add?c=' + code;
+    document.getElementById('openIOS').href = 'mizan://add?c=' + code;
+    document.getElementById('copy').addEventListener('click', function () {
+      var button = this, done = function () {
+        button.textContent = T[lang].copied;
+        setTimeout(function () { button.textContent = T[lang].copy; }, 1600);
+      };
+      var pretty = code.slice(0, 4) + '-' + code.slice(4);
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(pretty).then(done, function () {});
+      } else {
+        var area = document.createElement('textarea');
+        area.value = pretty;
+        document.body.appendChild(area);
+        area.select();
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        document.body.removeChild(area);
+      }
+    });
+  } else {
+    show('bad', true);
+    show('invite', false);
+    show('openAndroid', false);
+    show('openIOS', false);
+    document.getElementById('getAndroid').className = 'btn primary';
+  }
+  document.getElementById('getAndroid').href = play;
+  if (APP_STORE) {
+    document.getElementById('getIOS').href = APP_STORE;
+    show('getIOS', true);
+    if (!code) document.getElementById('getIOS').className = 'btn primary';
+  }
+})();
+</script>
+</body>
+</html>
