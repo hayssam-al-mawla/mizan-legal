@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Friend invite · Mizan</title>
-<meta name="description" content="A friend invited you to Mizan (Android) or Hakam (iPhone). Open the invite in the app.">
+<title>Friend invite · Fibra</title>
+<meta name="description" content="A friend invited you to Fibra. Open the invite in the app.">
 <meta name="robots" content="noindex">
 <!-- The invite code is in this page's address: don't pass the address on to the stores. -->
 <meta name="referrer" content="no-referrer">
@@ -52,8 +52,8 @@
 <main>
   <div class="top">
     <div class="brand">
-      <span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M5 9l7-2 7 2"/><path d="M3 13l2-5 2 5a2 2 0 0 1-4 0zM17 13l2-5 2 5a2 2 0 0 1-4 0z"/></svg></span>
-      <span data-t="brand">Mizan · Hakam</span>
+      <span class="logo" aria-hidden="true"><svg viewBox="136 136 752 752" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M512 534L596 678H428Z" fill="#BFD5FF" stroke="#BFD5FF" stroke-width="34"/><path d="M250 480H774" stroke="#fff" stroke-width="40"/><path d="M366 364V596M658 364V596" stroke="#fff" stroke-width="72"/><path d="M286 412V548M738 412V548" stroke="#fff" stroke-width="54"/></svg></span>
+      <span data-t="brand">Fibra</span>
     </div>
     <button class="switch" id="switch" type="button">العربية</button>
   </div>
@@ -74,34 +74,34 @@
   <p class="note" id="desktop" data-t="desktop" hidden>Open this link on your phone to accept the invite.</p>
 
   <div class="card" id="android">
-    <h2 data-t="androidTitle">On Android: Mizan</h2>
-    <a class="btn primary" id="openAndroid" href="#" data-t="openAndroid">Open in Mizan</a>
-    <a class="btn secondary" id="getAndroid" href="https://play.google.com/store/apps/details?id=com.barek.mizan" data-t="getAndroid">Get Mizan on Google Play</a>
+    <h2 data-t="androidTitle">On Android: Fibra</h2>
+    <a class="btn primary" id="openAndroid" href="#" data-t="openAndroid">Open in Fibra</a>
+    <a class="btn secondary" id="getAndroid" href="https://play.google.com/store/apps/details?id=com.barek.mizan" data-t="getAndroid">Get Fibra on Google Play</a>
     <ol style="margin-top:14px">
-      <li data-t="a1">New here? Install Mizan, open it and finish the short setup.</li>
+      <li data-t="a1">New here? Install Fibra, open it and finish the short setup.</li>
       <li data-t="a2">The invite then shows up on its own. If it doesn’t, open this link again, or go to Friends › Add and enter the code.</li>
     </ol>
   </div>
 
   <div class="card" id="ios">
-    <h2 data-t="iosTitle">On iPhone: Hakam</h2>
-    <a class="btn primary" id="openIOS" href="#" data-t="openIOS">Open in Hakam</a>
-    <a class="btn secondary" id="getIOS" href="#" data-t="getIOS" hidden>Get Hakam on the App Store</a>
+    <h2 data-t="iosTitle">On iPhone: Fibra</h2>
+    <a class="btn primary" id="openIOS" href="#" data-t="openIOS">Open in Fibra</a>
+    <a class="btn secondary" id="getIOS" href="#" data-t="getIOS" hidden>Get Fibra on the App Store</a>
     <ol style="margin-top:14px">
-      <li data-t="i1">New here? Find Hakam in the App Store, install it, open it and finish the short setup.</li>
+      <li data-t="i1">New here? Find Fibra in the App Store (it was called Hakam before), install it, open it and finish the short setup.</li>
       <li data-t="i2">Then open this link again, or go to Friends › Add and enter the code.</li>
     </ol>
   </div>
 
-  <p class="note" data-t="names">The app is called Mizan on Android and Hakam on iPhone. It is the same app, and friends work across both.</p>
+  <p class="note" data-t="names">The app is called Fibra. It used to be Mizan on Android and Hakam on iPhone, and a phone that has not updated yet still shows the old name. It is the same app, and friends work across both.</p>
 
-  <noscript><p class="note">Open Mizan (Android) or Hakam (iPhone), go to Friends › Add, and enter the code from the end of this page’s address (after “c=”).</p></noscript>
+  <noscript><p class="note">Open Fibra, go to Friends › Add, and enter the code from the end of this page’s address (after “c=”).</p></noscript>
 
   <footer><span data-t="track">This page doesn’t track you.</span> · <a href="../privacy.html" id="privacy" data-t="privacy">Privacy</a> · <a href="../terms.html" id="terms" data-t="terms">Terms</a></footer>
 </main>
 <script>
 (function () {
-  // The two store pages. Set APP_STORE once Hakam has its App Store address
+  // The two store pages. Set APP_STORE once the iPhone app has its App Store address
   // (https://apps.apple.com/app/id…); until then the iPhone card says to search for it.
   var PLAY = 'https://play.google.com/store/apps/details?id=com.barek.mizan';
   var APP_STORE = '';
@@ -110,7 +110,7 @@
 
   var T = {
     ar: {
-      brand: 'ميزان · حَكَم',
+      brand: 'فيبرا',
       title: 'صديقك يدعوك',
       lead: 'صديقك يستخدم هذا التطبيق لمتابعة تمارينه وطعامه ويريد إضافتك. كلٌّ منكما يختار ما يراه الآخر، ويمكنك التوقف متى شئت.',
       bad: 'رابط الدعوة غير مكتمل. اطلب من صديقك إرساله من جديد.',
@@ -118,17 +118,17 @@
       copy: 'انسخ الرمز',
       copied: 'تم النسخ',
       desktop: 'افتح هذا الرابط على هاتفك لقبول الدعوة.',
-      androidTitle: 'على أندرويد: ميزان',
-      openAndroid: 'افتح في ميزان',
-      getAndroid: 'حمّل ميزان من Google Play',
-      a1: 'جديد هنا؟ ثبّت ميزان وافتحه وأكمل الإعداد القصير.',
+      androidTitle: 'على أندرويد: فيبرا',
+      openAndroid: 'افتح في فيبرا',
+      getAndroid: 'حمّل فيبرا من Google Play',
+      a1: 'جديد هنا؟ ثبّت فيبرا وافتحه وأكمل الإعداد القصير.',
       a2: 'بعدها تظهر الدعوة تلقائياً. وإن لم تظهر، افتح هذا الرابط من جديد، أو ادخل إلى الأصدقاء › أضف واكتب الرمز.',
-      iosTitle: 'على الآيفون: حَكَم',
-      openIOS: 'افتح في حَكَم',
-      getIOS: 'حمّل حَكَم من App Store',
-      i1: 'جديد هنا؟ ابحث عن «حَكَم» (Hakam) في App Store وثبّته وافتحه وأكمل الإعداد القصير.',
+      iosTitle: 'على الآيفون: فيبرا',
+      openIOS: 'افتح في فيبرا',
+      getIOS: 'حمّل فيبرا من App Store',
+      i1: 'جديد هنا؟ ابحث عن «فيبرا» (Fibra) في App Store، وكان اسمه «حَكَم» سابقاً، وثبّته وافتحه وأكمل الإعداد القصير.',
       i2: 'ثم افتح هذا الرابط من جديد، أو ادخل إلى الأصدقاء › أضف واكتب الرمز.',
-      names: 'اسم التطبيق على أندرويد «ميزان» وعلى الآيفون «حَكَم». هو التطبيق نفسه، والصداقة تعمل بين الاثنين.',
+      names: 'اسم التطبيق «فيبرا». كان اسمه «ميزان» على أندرويد و«حَكَم» على الآيفون، والهاتف الذي لم يُحدَّث بعد يعرض الاسم القديم. هو التطبيق نفسه، والصداقة تعمل بين الاثنين.',
       track: 'هذه الصفحة لا تتتبّعك.',
       privacy: 'الخصوصية',
       terms: 'الشروط'
