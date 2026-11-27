@@ -88,7 +88,7 @@
     <a class="btn primary" id="openIOS" href="#" data-t="openIOS">Open in Fibra</a>
     <a class="btn secondary" id="getIOS" href="#" data-t="getIOS" hidden>Get Fibra on the App Store</a>
     <ol style="margin-top:14px">
-      <li data-t="i1">New here? Find Fibra in the App Store (it was called Hakam before), install it, open it and finish the short setup.</li>
+      <li data-t="i1">New here? Install Fibra from the App Store, open it and finish the short setup.</li>
       <li data-t="i2">Then open this link again, or go to Friends › Add and enter the code.</li>
     </ol>
   </div>
@@ -101,10 +101,10 @@
 </main>
 <script>
 (function () {
-  // The two store pages. Set APP_STORE once the iPhone app has its App Store address
-  // (https://apps.apple.com/app/id…); until then the iPhone card says to search for it.
+  // The two store pages. The App Store address has no country in it, so each visitor lands in
+  // their own store. With APP_STORE empty the iPhone card shows no store button.
   var PLAY = 'https://play.google.com/store/apps/details?id=com.barek.mizan';
-  var APP_STORE = '';
+  var APP_STORE = 'https://apps.apple.com/app/id6827297279';
   var PACKAGE = 'com.barek.mizan';
   var ALPHABET = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
 
@@ -126,7 +126,7 @@
       iosTitle: 'على الآيفون: فيبرا',
       openIOS: 'افتح في فيبرا',
       getIOS: 'حمّل فيبرا من App Store',
-      i1: 'جديد هنا؟ ابحث عن «فيبرا» (Fibra) في App Store، وكان اسمه «حَكَم» سابقاً، وثبّته وافتحه وأكمل الإعداد القصير.',
+      i1: 'جديد هنا؟ ثبّت فيبرا من App Store وافتحه وأكمل الإعداد القصير.',
       i2: 'ثم افتح هذا الرابط من جديد، أو ادخل إلى الأصدقاء › أضف واكتب الرمز.',
       names: 'اسم التطبيق «فيبرا». كان اسمه «ميزان» على أندرويد و«حَكَم» على الآيفون، والهاتف الذي لم يُحدَّث بعد يعرض الاسم القديم. هو التطبيق نفسه، والصداقة تعمل بين الاثنين.',
       track: 'هذه الصفحة لا تتتبّعك.',
